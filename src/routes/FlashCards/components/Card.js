@@ -5,25 +5,23 @@ import React, {PropTypes} from 'react'
 import {Motion, spring, presets} from 'react-motion'
 import './Card.scss'
 
-const frontStyles = function(idx){
-
-}
+const ANIMATION_OPTIONS = {stiffness:60, damping: 15};
 
 const getStyles = function(flipped){
-  if(flipped){
+  if(!flipped){
     return {
-      z: spring(0, {stiffness: 60, damping: 45}),
-      front: spring(0, {stiffness: 60, damping: 45}),
-      back: spring(180, {stiffness: 60, damping: 45}),
-      scale: spring(0.7, {stiffness: 60, damping: 45})
+      z: spring(0, ANIMATION_OPTIONS),
+      front: spring(0, ANIMATION_OPTIONS),
+      back: spring(180, ANIMATION_OPTIONS),
+      scale: spring(1.0, ANIMATION_OPTIONS)
     }
   }
   else{
     return{
-      z: spring(200, {stiffness: 60, damping: 45}),
-      front: spring(180, {stiffness: 60, damping: 45}),
-      back: spring(360, {stiffness: 60, damping: 45}),
-      scale: spring(1.4, {stiffness: 60, damping: 45})
+      z: spring(200, ANIMATION_OPTIONS),
+      front: spring(180, ANIMATION_OPTIONS),
+      back: spring(360, ANIMATION_OPTIONS),
+      scale: spring(1.4, ANIMATION_OPTIONS)
     }
   }
 }
@@ -33,17 +31,8 @@ const getInitialStyles = function () {
     z: 0,
     front: 0,
     back: 180,
-    scale: 0.7
+    scale: 1
   }
-}
-
-const getFlippedStyles = function () {
-  return {
-    z: spring(200, {stiffness: 60, damping: 45}),
-    front: spring(180, {stiffness: 60, damping: 45}),
-    back: spring(360, {stiffness: 60, damping: 45}),
-    scale: spring(1.4, {stiffness: 60, damping: 45})
-  };
 }
 
 const Card = ({onClick, flipped, text}) => (

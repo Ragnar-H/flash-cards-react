@@ -4,18 +4,7 @@ import './Header.scss'
 
 export const Header = () => (
     <div>
-        <h1>React Redux Starter Kit</h1>
-        <IndexLink to='/' activeClassName='route--active'>
-            Home
-        </IndexLink>
-        {' · '}
-        <Link to='/counter' activeClassName='route--active'>
-            Counter
-        </Link>
-        {' · '}
-        <Link to='/flashcards' activeClassName='route--active'>
-            FlashCards
-        </Link>
+        <h1>Flash Card React-Redux App</h1>
 
     </div>
 )
