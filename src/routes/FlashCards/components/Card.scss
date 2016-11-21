@@ -1,11 +1,11 @@
 .card-component {
-  border: 1px dashed #f00;
   width: 260px;
   height: 380px;
   position: relative;
   justify-content: center;
   perspective: 500px;
   will-change: transform;
+
 
   .front, .back{
     backface-visibility: hidden;
@@ -16,6 +16,9 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    -webkit-box-shadow: 3px 3px 5px 6px #cccccc;
+    -moz-box-shadow: 3px 3px 5px 6px #cccccc;
+    box-shadow: 3px 3px 5px 6px #cccccc;
   }
 
   .front{

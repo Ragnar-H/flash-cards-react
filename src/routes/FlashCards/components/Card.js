@@ -41,9 +41,6 @@ const Card = ({ onClick, flipped, text }) => (
       <div
         className='card-component'
         onClick={onClick}
-        style={{
-          color: flipped ? 'green' : 'red'
-        }}
       >
         <div
           className='front'
@@ -52,7 +49,7 @@ const Card = ({ onClick, flipped, text }) => (
             rotateX(${value.front}deg)
             scale(${value.scale})`
           }}>
-          {text}
+          <h1>{text}</h1>
         </div>
         <div
           className='back'
@@ -61,7 +58,6 @@ const Card = ({ onClick, flipped, text }) => (
             rotateX(${value.back}deg)
             scale(${value.scale})`
           }}>
-          <h1>The back</h1>
         </div>
       </div>
     }
