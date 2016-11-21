@@ -1,11 +1,12 @@
 /**
  * Created by ragnarhardarson on 20/11/2016.
  */
-import React from 'react'
-import {connect} from 'react-redux'
-import {addCard} from '../modules/cards'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { addCard } from '../modules/cards'
 
-let AddCard = ({dispatch}) => {
+// noinspection Eslint
+let AddCard = ({ dispatch }) => {
   let input
 
   return (
@@ -20,13 +21,17 @@ let AddCard = ({dispatch}) => {
       }}>
         <input ref={node => {
           input = node
-        }}/>
-        <button type="submit">
+        }} />
+        <button type='submit'>
           Add Card
         </button>
       </form>
     </div>
   )
+}
+
+AddCard.PropTypes = {
+  dispatch: PropTypes.func.isRequired
 }
 
 AddCard = connect()(AddCard)

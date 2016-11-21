@@ -1,11 +1,11 @@
 /**
  * Created by ragnarhardarson on 20/11/2016.
  */
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import Card from './Card'
 import AddCard from '../containers/AddCard'
 
-const CardList = ({cards, onCardClick}) => (
+const CardList = ({ cards, onCardClick }) => (
   <div>
     <AddCard />
     {cards.map(card =>

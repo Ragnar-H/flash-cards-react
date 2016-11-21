@@ -1,23 +1,22 @@
 /**
  * Created by ragnarhardarson on 20/11/2016.
  */
-import React, {PropTypes} from 'react'
-import {Motion, spring, presets} from 'react-motion'
+import React, { PropTypes } from 'react'
+import { Motion, spring } from 'react-motion'
 import './Card.scss'
 
-const ANIMATION_OPTIONS = {stiffness:60, damping: 15};
+const ANIMATION_OPTIONS = { stiffness: 60, damping: 15 }
 
-const getStyles = function(flipped){
-  if(!flipped){
+const getStyles = function (flipped) {
+  if (!flipped) {
     return {
       z: spring(0, ANIMATION_OPTIONS),
       front: spring(0, ANIMATION_OPTIONS),
       back: spring(180, ANIMATION_OPTIONS),
       scale: spring(1.0, ANIMATION_OPTIONS)
     }
-  }
-  else{
-    return{
+  } else {
+    return {
       z: spring(200, ANIMATION_OPTIONS),
       front: spring(180, ANIMATION_OPTIONS),
       back: spring(360, ANIMATION_OPTIONS),
@@ -35,34 +34,37 @@ const getInitialStyles = function () {
   }
 }
 
-const Card = ({onClick, flipped, text}) => (
+const Card = ({ onClick, flipped, text }) => (
   <Motion
     defaultStyle={getInitialStyles()}
-    style={getStyles(flipped)}>{value=>
-    <div className="card-component"
-         onClick={onClick}
-         style={{
-           color: flipped ? 'green' : 'red'
-         }}
-    >
-      <div className="front"
-           style={{
-             transform: `translateZ(-${value.z}px)
-              rotateX(${value.front}deg)
-               scale(${value.scale})`
-           }}>
-        {text}
+    style={getStyles(flipped)}>{value =>
+      <div
+        className='card-component'
+        onClick={onClick}
+        style={{
+          color: flipped ? 'green' : 'red'
+        }}
+      >
+        <div
+          className='front'
+          style={{
+            transform: `translateZ(-${value.z}px)
+            rotateX(${value.front}deg)
+            scale(${value.scale})`
+          }}>
+          {text}
+        </div>
+        <div
+          className='back'
+          style={{
+            transform: `translateZ(-${value.z}px)
+            rotateX(${value.back}deg)
+            scale(${value.scale})`
+          }}>
+          <h1>The back</h1>
+        </div>
       </div>
-      <div className="back"
-           style={{
-             transform: `translateZ(-${value.z}px)
-              rotateX(${value.back}deg)
-               scale(${value.scale})`
-           }}>
-        <h1>The back</h1>
-      </div>
-    </div>
-  }
+    }
   </Motion>
 )
 

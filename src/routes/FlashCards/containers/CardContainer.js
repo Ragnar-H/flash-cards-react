@@ -2,7 +2,7 @@
  * Created by ragnarhardarson on 20/11/2016.
  */
 import { connect } from 'react-redux'
-import { toggleCard, addCard } from '../modules/cards'
+import { toggleCard } from '../modules/cards'
 
 /*  This is a container component. Notice it does not contain any JSX,
  nor does it import React. This component is **only** responsible for
@@ -24,17 +24,16 @@ const getCards = (cards, filter) => {
   }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
-    return{
-      onCardClick: (id) => {
-        dispatch(toggleCard(id))
-      }
+  return {
+    onCardClick: (id) => {
+      dispatch(toggleCard(id))
     }
+  }
 }
 
 const mapStateToProps = (state) => ({
-    cards : getCards(state.cards, state.visibilityFilter)
+  cards: getCards(state.cards, state.visibilityFilter)
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
