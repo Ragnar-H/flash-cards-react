@@ -16,7 +16,8 @@ export const addCard = (text) => {
   return {
     type: ADD_CARD,
     id: nextCardId++,
-    text
+    text,
+    backText: ''
   }
 }
 
@@ -42,7 +43,8 @@ const card = (state = {}, action) => {
       return {
         id: action.id,
         text: action.text,
-        flipped: false
+        flipped: false,
+        backText: action.backText
       }
 
     case TOGGLE_CARD:

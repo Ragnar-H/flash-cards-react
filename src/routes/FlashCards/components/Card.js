@@ -34,7 +34,7 @@ const getInitialStyles = function () {
   }
 }
 
-const Card = ({ onClick, flipped, text }) => (
+const Card = ({ onClick, flipped, text, backText }) => (
   <Motion
     defaultStyle={getInitialStyles()}
     style={getStyles(flipped)}>{value =>
@@ -46,7 +46,7 @@ const Card = ({ onClick, flipped, text }) => (
           className='front'
           style={{
             transform: `translateZ(-${value.z}px)
-            rotateX(${value.front}deg)
+            rotateY(${value.front}deg)
             scale(${value.scale})`
           }}>
           <h1>{text}</h1>
@@ -55,9 +55,11 @@ const Card = ({ onClick, flipped, text }) => (
           className='back'
           style={{
             transform: `translateZ(-${value.z}px)
-            rotateX(${value.back}deg)
+            rotateY(${value.back}deg)
             scale(${value.scale})`
-          }}>
+          }}
+        >
+          <h1>{backText}</h1>
         </div>
       </div>
     }
@@ -67,7 +69,8 @@ const Card = ({ onClick, flipped, text }) => (
 Card.propTypes = {
   onClick: PropTypes.func.isRequired,
   flipped: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  backText: PropTypes.string.isRequired
 }
 
 export default Card
