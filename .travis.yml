@@ -18,3 +18,4 @@ after_success:
 
 deploy:
   provider: azure_web_apps
+  verbose: true
