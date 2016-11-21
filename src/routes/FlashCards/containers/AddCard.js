@@ -10,7 +10,7 @@ let AddCard = ({ dispatch }) => {
   let input
 
   return (
-    <div>
+    <div className='add-card'>
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
@@ -19,7 +19,7 @@ let AddCard = ({ dispatch }) => {
         dispatch(addCard(input.value))
         input.value = ''
       }}>
-        <input ref={node => {
+        <input placeholder='Awesome text' ref={node => {
           input = node
         }} />
         <button type='submit'>

@@ -6,7 +6,7 @@ import Card from './Card'
 import AddCard from '../containers/AddCard'
 
 const CardList = ({ cards, onCardClick }) => (
-  <div>
+  <div className='card-list'>
     <AddCard />
     {cards.map(card =>
       <Card
