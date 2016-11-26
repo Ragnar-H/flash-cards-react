@@ -15,12 +15,3 @@ script:
 
 after_success:
   - npm run codecov
-
-deploy:
-  provider: azure_web_apps
-  file:
-    - "app.js"
-    - "dist/*"
-    - "package.json"
-  verbose: true
-  skip_cleanup: true
