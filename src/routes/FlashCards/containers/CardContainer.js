@@ -2,14 +2,13 @@
  * Created by ragnarhardarson on 20/11/2016.
  */
 import { connect } from 'react-redux'
-import { toggleCard } from '../modules/cards'
+import { toggleCard, enterEditMode } from '../modules/cards'
+import Cards from '../components/CardList'
 
 /*  This is a container component. Notice it does not contain any JSX,
  nor does it import React. This component is **only** responsible for
  wiring in the actions and state necessary to render a presentational
  component - in this case, the counter:   */
-
-import Cards from '../components/CardList'
 
 /*  Object of action creators (can also be function that returns object).
  Keys will be passed as props to presentational components. Here we are
@@ -28,6 +27,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onCardClick: (id) => {
       dispatch(toggleCard(id))
+    },
+    onEditClick: (id) => {
+      dispatch(enterEditMode(id))
     }
   }
 }

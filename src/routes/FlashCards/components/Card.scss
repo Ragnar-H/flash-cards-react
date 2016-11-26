@@ -52,5 +52,8 @@
       -o-transform: rotateY(180deg);
       transform: rotateY(180deg);
     }
+    .edit-button{
+      z-index:50;
+    }
   }
 }

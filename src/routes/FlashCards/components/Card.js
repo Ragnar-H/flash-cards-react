@@ -3,6 +3,7 @@
  */
 import React, { PropTypes } from 'react'
 import { Motion, spring } from 'react-motion'
+import EditButton from './EditButton'
 import './Card.scss'
 
 const ANIMATION_OPTIONS = { stiffness: 60, damping: 15 }
@@ -34,7 +35,7 @@ const getInitialStyles = function () {
   }
 }
 
-const Card = ({ onClick, flipped, text, backText }) => (
+const Card = ({ onClick, flipped, text, backText, isEdit, onEditClick }) => (
   <Motion
     defaultStyle={getInitialStyles()}
     style={getStyles(flipped)}>{value =>
@@ -43,13 +44,13 @@ const Card = ({ onClick, flipped, text, backText }) => (
         onClick={onClick}
       >
         <div
-          className='front'
-          style={{
+          className='front' style={{
             transform: `translateZ(-${value.z}px)
             rotateY(${value.front}deg)
             scale(${value.scale})`
           }}>
           <h1>{text}</h1>
+          <EditButton onClick={onEditClick} isEdit={isEdit} />
         </div>
         <div
           className='back'
@@ -60,6 +61,7 @@ const Card = ({ onClick, flipped, text, backText }) => (
           }}
         >
           <h1>{backText}</h1>
+          <EditButton onClick={onEditClick} isEdit={isEdit} />
         </div>
       </div>
     }
@@ -70,7 +72,8 @@ Card.propTypes = {
   onClick: PropTypes.func.isRequired,
   flipped: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
-  backText: PropTypes.string.isRequired
+  backText: PropTypes.string.isRequired,
+  onEditClick: PropTypes.func.isRequired
 }
 
 export default Card

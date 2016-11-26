@@ -8,6 +8,7 @@
 let nextCardId = 0
 export const ADD_CARD = 'ADD_CARD'
 export const TOGGLE_CARD = 'TOGGLE_CARD'
+export const EDIT_MODE = 'EDIT_MODE'
 
 // ------------------------------------
 // Actions
@@ -24,6 +25,13 @@ export const addCard = (text) => {
 export const toggleCard = (id) => {
   return {
     type: TOGGLE_CARD,
+    id
+  }
+}
+
+export const enterEditMode = (id) => {
+  return {
+    type: EDIT_MODE,
     id
   }
 }
@@ -56,6 +64,15 @@ const card = (state = {}, action) => {
         flipped: !state.flipped
       })
 
+    case EDIT_MODE:
+      if (state.id !== action.id) {
+        return state
+      }
+
+      return Object.assign({}, state, {
+        isEdit: !state.isEdit
+      })
+
     default:
       return state
   }
@@ -72,6 +89,11 @@ const cards = (state = [], action) => {
     case TOGGLE_CARD:
       return state.map(t =>
         card(t, action)
+      )
+
+    case EDIT_MODE:
+      return state.map(t =>
+      card(t, action)
       )
 
     default:
