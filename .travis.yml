@@ -16,8 +16,10 @@ script:
 after_success:
   - npm run codecov
 
-before_deploy: ./pre-deploy.sh
-
 deploy:
   provider: azure_web_apps
+  file:
+    - "app.js"
+    - "dist/*"
+    - "package.json"
   verbose: true
