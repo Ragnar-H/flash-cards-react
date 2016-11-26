@@ -23,3 +23,4 @@ deploy:
     - "dist/*"
     - "package.json"
   verbose: true
+  skip_cleanup: true
