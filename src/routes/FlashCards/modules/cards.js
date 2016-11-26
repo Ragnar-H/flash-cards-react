@@ -17,7 +17,7 @@ export const addCard = (text) => {
     type: ADD_CARD,
     id: nextCardId++,
     text,
-    backText: ''
+    backText: 'wonderful backside'
   }
 }
 
