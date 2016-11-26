@@ -1,0 +1,10 @@
+# List all files that need to be deployed to server
+
+# Start by ignoring everything, include what is production
+*
+
+# Production files
+!dist/
+!app.js
+!package.json
+
