@@ -1,6 +1,7 @@
 /**
  * Created by ragnarhardarson on 20/11/2016.
  */
+import { addSide, side, EDIT_MODE } from './sides'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -8,7 +9,6 @@
 let nextCardId = 0
 export const ADD_CARD = 'ADD_CARD'
 export const TOGGLE_CARD = 'TOGGLE_CARD'
-export const EDIT_MODE = 'EDIT_MODE'
 
 // ------------------------------------
 // Actions
@@ -18,7 +18,8 @@ export const addCard = (text) => {
     type: ADD_CARD,
     id: nextCardId++,
     text,
-    backText: 'wonderful backside'
+    front : addSide(text),
+    back : addSide('')
   }
 }
 
@@ -27,18 +28,6 @@ export const toggleCard = (id) => {
     type: TOGGLE_CARD,
     id
   }
-}
-
-export const enterEditMode = (id) => {
-  return {
-    type: EDIT_MODE,
-    id
-  }
-}
-
-export const actions = {
-  addCard,
-  toggleCard
 }
 
 // ------------------------------------
@@ -50,9 +39,9 @@ const card = (state = {}, action) => {
     case ADD_CARD:
       return {
         id: action.id,
-        text: action.text,
         flipped: false,
-        backText: action.backText
+        front: side(undefined, action, action.text),
+        back: side(undefined, action, '')
       }
 
     case TOGGLE_CARD:
@@ -65,13 +54,7 @@ const card = (state = {}, action) => {
       })
 
     case EDIT_MODE:
-      if (state.id !== action.id) {
-        return state
-      }
-
-      return Object.assign({}, state, {
-        isEdit: !state.isEdit
-      })
+      return side(state, action)
 
     default:
       return state
@@ -93,7 +76,7 @@ const cards = (state = [], action) => {
 
     case EDIT_MODE:
       return state.map(t =>
-      card(t, action)
+        card(t, action)
       )
 
     default:

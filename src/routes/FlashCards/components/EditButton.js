@@ -5,10 +5,11 @@ import React, { PropTypes } from 'react'
 
 const EditButton = ({ onClick, isEdit }) => (
   <button type='button' className='edit-button' onClick={e => {
-    onClick()
     e.stopPropagation()
+    console.log('clicking button')
+    onClick()
   }}>
-    { isEdit ? 'Edit' : 'Save'}
+    { isEdit ? 'Done' : 'Edit'}
   </button>
 )
 

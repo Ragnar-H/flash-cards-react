@@ -2,7 +2,7 @@
  * Created by ragnarhardarson on 20/11/2016.
  */
 import { connect } from 'react-redux'
-import { toggleCard, enterEditMode } from '../modules/cards'
+import { toggleCard } from '../modules/cards'
 import Cards from '../components/CardList'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -27,9 +27,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onCardClick: (id) => {
       dispatch(toggleCard(id))
-    },
-    onEditClick: (id) => {
-      dispatch(enterEditMode(id))
     }
   }
 }

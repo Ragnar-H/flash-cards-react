@@ -13,7 +13,6 @@ const CardList = ({ cards, onCardClick, onEditClick }) => (
         key={card.id}
         {...card}
         onClick={() => onCardClick(card.id)}
-        onEditClick={() => onEditClick(card.id)}
       />
     )}
   </div>
@@ -23,10 +22,10 @@ CardList.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     flipped: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
+    front: PropTypes.object.isRequired,
+    back: PropTypes.object.isRequired
   }).isRequired).isRequired,
-  onCardClick: PropTypes.func.isRequired,
-  onEditClick: PropTypes.func.isRequired
+  onCardClick: PropTypes.func.isRequired
 }
 
 export default CardList
