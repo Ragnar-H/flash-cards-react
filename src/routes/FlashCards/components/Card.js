@@ -31,7 +31,7 @@ const getInitialStyles = function () {
     z: 0,
     front: 0,
     back: 180,
-    scale: 0.01
+    scale: 0.1
   }
 }
 

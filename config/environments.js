@@ -24,6 +24,7 @@ module.exports = {
       chunks       : true,
       chunkModules : true,
       colors       : true
-    }
+    },
+    port                     : 8080
   })
 }
