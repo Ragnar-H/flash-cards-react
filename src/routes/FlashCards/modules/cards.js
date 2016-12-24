@@ -1,7 +1,7 @@
 /**
  * Created by ragnarhardarson on 20/11/2016.
  */
-import { addSide, side, EDIT_MODE } from './sides'
+import { addSide, side, TOGGLE_EDIT_MODE, FORCE_EDIT_MODE } from './sides'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -49,11 +49,19 @@ const card = (state = {}, action) => {
         return state
       }
 
+      // Are one of the sides in edit mode? Then we do not want to flip the card
+      if (state.front.isEdit || state.back.isEdit) {
+        return state
+      }
+
       return Object.assign({}, state, {
         flipped: !state.flipped
       })
 
-    case EDIT_MODE:
+    case TOGGLE_EDIT_MODE:
+      return side(state, action)
+
+    case FORCE_EDIT_MODE:
       return side(state, action)
 
     default:
@@ -74,11 +82,15 @@ const cards = (state = [], action) => {
         card(t, action)
       )
 
-    case EDIT_MODE:
+    case TOGGLE_EDIT_MODE:
       return state.map(t =>
         card(t, action)
       )
 
+    case FORCE_EDIT_MODE:
+      return state.map(t =>
+        card(t, action)
+      )
     default:
       return state
   }
