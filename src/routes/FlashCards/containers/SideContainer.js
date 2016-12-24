@@ -15,7 +15,7 @@ let Side = ({ id, dispatch, text, isEdit }) => {
           dispatch(toggleEditMode(id))
         }
       }} />
-      <EditButton isEdit={isEdit} onClick={() => dispatch(toggleEditMode(id))} />
+      <EditButton className='edit-button' isEdit={isEdit} onClick={() => dispatch(toggleEditMode(id))} />
     </div>
   )
 }
