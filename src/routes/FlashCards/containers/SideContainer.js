@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 let Side = ({ id, dispatch, text, isEdit }) => {
   return (
-    <div>
+    <div className='card-text'>
       <textarea className={isEdit ? 'edit' : 'display'} defaultValue={text} onClick={e => {
         e.stopPropagation()
         if (!isEdit) {
