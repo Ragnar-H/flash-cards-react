@@ -55,5 +55,16 @@
     .edit-button{
       z-index:50;
     }
+    textarea{
+      resize: none;
+      &.display {
+        border: none;
+        background: transparent;
+      }
+      &.edit{
+        background: #ffffff;
+        border: #7ab893 3px solid;
+      }
+    }
   }
 }

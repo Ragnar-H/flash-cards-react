@@ -9,7 +9,10 @@ import { connect } from 'react-redux'
 let Side = ({ id, dispatch, text, isEdit }) => {
   return (
     <div>
-      <h1>{text}</h1>
+      <textarea className={isEdit ? 'edit' : 'display'} defaultValue={text} onClick={e => {
+        e.stopPropagation()
+        dispatch(enterEditMode(id))
+      }} />
       <EditButton isEdit={isEdit} onClick={() => dispatch(enterEditMode(id))} />
     </div>
   )
