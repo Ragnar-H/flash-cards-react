@@ -22,7 +22,7 @@ export const addSide = (text) => {
   }
 }
 
-export const enterEditMode = (id) => {
+export const toggleEditMode = (id) => {
   return {
     type: EDIT_MODE,
     id

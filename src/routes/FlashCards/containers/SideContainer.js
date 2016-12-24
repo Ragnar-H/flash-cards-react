@@ -3,7 +3,7 @@
  */
 import React, { PropTypes } from 'react'
 import EditButton from '../components/EditButton'
-import { enterEditMode } from '../modules/sides'
+import { toggleEditMode } from '../modules/sides'
 import { connect } from 'react-redux'
 
 let Side = ({ id, dispatch, text, isEdit }) => {
@@ -11,9 +11,11 @@ let Side = ({ id, dispatch, text, isEdit }) => {
     <div>
       <textarea className={isEdit ? 'edit' : 'display'} defaultValue={text} onClick={e => {
         e.stopPropagation()
-        dispatch(enterEditMode(id))
+        if (!isEdit) {
+          dispatch(toggleEditMode(id))
+        }
       }} />
-      <EditButton isEdit={isEdit} onClick={() => dispatch(enterEditMode(id))} />
+      <EditButton isEdit={isEdit} onClick={() => dispatch(toggleEditMode(id))} />
     </div>
   )
 }
