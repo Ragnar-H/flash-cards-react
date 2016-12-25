@@ -38,6 +38,7 @@ export const forceEditMode = (id, forceState) => {
 }
 
 export const updateText = (id, text) => {
+  console.log('updating text')
   return {
     type: UPDATE_TEXT,
     id,

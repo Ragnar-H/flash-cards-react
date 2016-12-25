@@ -97,7 +97,7 @@ const cards = (state = [], action) => {
 
     case UPDATE_TEXT:
       return state.map(t =>
-      card(t, action)
+        card(t, action)
       )
     default:
       return state
