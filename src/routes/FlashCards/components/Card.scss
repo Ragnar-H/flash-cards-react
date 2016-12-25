@@ -14,11 +14,17 @@
       border: 0;
     }
   }
+
+  .card-container{
+    margin: 35px auto;
+    width: 260px;
+  }
+
   .card-component {
     margin: 35px auto;
     width: 260px;
     height: 380px;
-    position: relative;
+    position: absolute;
     justify-content: center;
     perspective: 500px;
     will-change: transform;

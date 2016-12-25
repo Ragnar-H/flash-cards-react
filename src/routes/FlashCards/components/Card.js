@@ -8,9 +8,10 @@ import './Card.scss'
 
 const ANIMATION_OPTIONS = { stiffness: 60, damping: 15 }
 
-const getStyles = function (flipped) {
+const getStyles = function (flipped, idx) {
   if (!flipped) {
     return {
+      y: spring(idx * 415, ANIMATION_OPTIONS),
       z: spring(0, ANIMATION_OPTIONS),
       front: spring(0, ANIMATION_OPTIONS),
       back: spring(180, ANIMATION_OPTIONS),
@@ -18,6 +19,7 @@ const getStyles = function (flipped) {
     }
   } else {
     return {
+      y: spring(idx * 415, ANIMATION_OPTIONS),
       z: spring(200, ANIMATION_OPTIONS),
       front: spring(180, ANIMATION_OPTIONS),
       back: spring(360, ANIMATION_OPTIONS),
@@ -28,6 +30,7 @@ const getStyles = function (flipped) {
 
 const getInitialStyles = function () {
   return {
+    y: -415,
     z: 0,
     front: 0,
     back: 180,
@@ -35,21 +38,25 @@ const getInitialStyles = function () {
   }
 }
 
-const Card = ({ onClick, flipped, front, back }) => (
+const Card = ({ idx, onClick, flipped, front, back, y }) => (
   <Motion
     defaultStyle={getInitialStyles()}
-    style={getStyles(flipped)}>{value =>
+    style={getStyles(flipped, idx)}>{value =>
       <div
         className='card-component'
         onClick={onClick}
+        style={{
+          transform: `translateY(${value.y}px)`
+        }}
       >
         <div
-          className='front' style={{
+          className='front'
+          style={{
             transform: `translateZ(-${value.z}px)
             rotateY(${value.front}deg)
             scale(${value.scale})`
           }}>
-          {this}
+          {y}
           <Side {...front} />
         </div>
         <div

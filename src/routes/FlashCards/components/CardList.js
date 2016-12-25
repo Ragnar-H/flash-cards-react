@@ -8,13 +8,16 @@ import AddCard from '../containers/AddCard'
 const CardList = ({ cards, onCardClick, onEditClick }) => (
   <div className='card-list'>
     <AddCard />
-    {cards.map(card =>
-      <Card
-        key={card.id}
-        {...card}
-        onClick={() => onCardClick(card.id)}
+    <div className='card-container'>
+      {cards.map((card, idx) =>
+        <Card
+          idx={idx}
+          key={card.id}
+          {...card}
+          onClick={() => onCardClick(card.id)}
       />
     )}
+    </div>
   </div>
 )
 
