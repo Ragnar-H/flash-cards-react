@@ -9,6 +9,7 @@ import { ADD_CARD } from './cards'
 let nextSideId = 0
 export const TOGGLE_EDIT_MODE = 'TOGGLE_EDIT_MODE'
 export const FORCE_EDIT_MODE = 'FORCE_EDIT_MODE'
+export const UPDATE_TEXT = 'UPDATE_TEXT'
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -33,6 +34,14 @@ export const forceEditMode = (id, forceState) => {
     type: FORCE_EDIT_MODE,
     id,
     forceState
+  }
+}
+
+export const updateText = (id, text) => {
+  return {
+    type: UPDATE_TEXT,
+    id,
+    text
   }
 }
 
@@ -64,7 +73,6 @@ export const side = (state = {}, action, text) => {
       return state
 
     case TOGGLE_EDIT_MODE:
-      console.log('in teh switchy')
       if (state.front.id === action.id) {
         return Object.assign({}, state, {
           front: Object.assign({}, state.front, { isEdit : !state.front.isEdit })
@@ -73,6 +81,20 @@ export const side = (state = {}, action, text) => {
       if (state.back.id === action.id) {
         return Object.assign({}, state, {
           back: Object.assign({}, state.back, { isEdit : !state.back.isEdit })
+        })
+      }
+
+      return state
+
+    case UPDATE_TEXT:
+      if (state.front.id === action.id) {
+        return Object.assign({}, state, {
+          front: Object.assign({}, state.front, { text : action.text })
+        })
+      }
+      if (state.back.id === action.id) {
+        return Object.assign({}, state, {
+          back: Object.assign({}, state.back, { text: action.text })
         })
       }
 

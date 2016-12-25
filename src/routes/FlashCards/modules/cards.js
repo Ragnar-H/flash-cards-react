@@ -1,7 +1,7 @@
 /**
  * Created by ragnarhardarson on 20/11/2016.
  */
-import { addSide, side, TOGGLE_EDIT_MODE, FORCE_EDIT_MODE } from './sides'
+import { addSide, side, TOGGLE_EDIT_MODE, FORCE_EDIT_MODE, UPDATE_TEXT } from './sides'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -64,6 +64,9 @@ const card = (state = {}, action) => {
     case FORCE_EDIT_MODE:
       return side(state, action)
 
+    case UPDATE_TEXT:
+      return side(state, action)
+
     default:
       return state
   }
@@ -73,8 +76,8 @@ const cards = (state = [], action) => {
   switch (action.type) {
     case ADD_CARD:
       return [
-        ...state,
-        card(undefined, action)
+        card(undefined, action),
+        ...state
       ]
 
     case TOGGLE_CARD:
@@ -90,6 +93,11 @@ const cards = (state = [], action) => {
     case FORCE_EDIT_MODE:
       return state.map(t =>
         card(t, action)
+      )
+
+    case UPDATE_TEXT:
+      return state.map(t =>
+      card(t, action)
       )
     default:
       return state
