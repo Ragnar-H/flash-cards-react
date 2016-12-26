@@ -1,8 +1,7 @@
 {
   "name": "react-redux-starter-kit",
-  "version": "3.0.0-alpha.2",
-  "description": "Get started with React, Redux, and React-Router!",
-  "main": "server.js",
+  "version": "0.1",
+  "description": "Flash cards made with React and Redux",
   "engines": {
     "node": ">=4.5.0",
     "npm": "^3.0.0"
@@ -12,8 +11,9 @@
     "compile": "better-npm-run compile",
     "lint": "eslint bin build config server src tests",
     "lint:fix": "npm run lint -- --fix",
-    "start": "better-npm-run deploy:prod && node server.js",
+    "start": "node server.js",
     "dev": "better-npm-run dev",
+    "build": "better-npm-run deploy:prod",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
     "deploy": "better-npm-run deploy",
@@ -71,9 +71,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
+    "url": "git+https://github.com/Ragnar-Hardarson/flash-cards-react.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Ragnar Hardarson",
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.17.0",
