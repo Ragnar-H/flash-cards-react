@@ -17,7 +17,7 @@ deploy:
   password:
     secure: lN5mPUipFIGbMSa0JXU4GeYqLXz8kX159gHQiwVlbfVkU66FUwh04uc+MD4PBELnwZv3f+H+VXFDmm63w3zf+k83l9I87YlHJcw71yzZ/4bqxwujJGRXsQT5eeUnEOmo19NEKO9jjuepte948g2ve3LtuqQs8mQdhglAlAySZiMK0ai/xd6ME5sVX86OpEo6jaUlwpWqrNg/cec/SzU51iocWEqAox3Pd92shCxuLSPTsxEQw8yI8D5qgJPr38CJHKHffktATpkUSlOSQnAYzCtYhRQPpvF1DimmByX4YWT7iUgzJQq0hjPvSqEGLlKc+lCVXdb5MvBg7cdKIn+aSGXz+UVpm6EzUExTSYnoYfT0G/HWYXD+9gxf/3J85gveRzr6WNy9gEhPpAAdJN5VJhxY3JIlsgzBY+CMoLRsbXL5OWjvrZ7CpxqeBubb1ewDlQq5Ha0KvrOLllW3p1bvVwG5OuhvsooC34o9EgUGbxLnCmX+lRl9pvavp8EOWAQGVaoPMq50lcqQC2WHErF3zdLLkiEKNg7Kr+rMDjgciyRL4Ll/TpjaiYYs10p/7F/tQ4A5v5k0XibUbnHoKPjTgZnMqCOfhpf/TbhdrDwg46YfGPQNXkFXnfl/hgczrZq2/rDcNOIqaNRc1kIkPY3xdpNNtB9Ks/L6K9IlmVrh15U=
   app: flash-cards-react
-  domain: ''
+  domain: my-flash-card-app
   on:
     repo: Ragnar-Hardarson/flash-cards-react
     branch: openshift-deploy
