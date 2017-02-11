@@ -4,12 +4,12 @@
 import React, { PropTypes } from 'react'
 
 const EditButton = ({ onClick, isEdit }) => (
-  <button type='button' className='edit-button' onClick={e => {
+  <a className='edit-button' onClick={e => {
     e.stopPropagation()
     onClick()
   }}>
-    { isEdit ? 'Done' : 'Edit'}
-  </button>
+    <i className={isEdit ? 'fa fa-check fa-lg' : 'fa fa-pencil-square-o fa-lg'} />
+  </a>
 )
 
 EditButton.propTypes = {
