@@ -19,7 +19,6 @@ body {
   justify-content: center;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: "Open Sans", sans;
   font-weight: 400;
   color: #377D6A;
 
@@ -34,4 +33,8 @@ body {
 *:focus{
   outline-color: #5AA23F;
   outline-width: thin;
+}
+
+body, input, textarea, button {
+  font-family: 'Josefin Sans', sans-serif;
 }
