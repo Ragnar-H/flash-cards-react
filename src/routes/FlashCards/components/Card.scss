@@ -67,14 +67,18 @@
       textarea {
         display: flex;
         margin:25px auto;
+        height: auto;
         resize: none;
+        outline: none;
+        border: #7ab893 1px solid;
+        max-height: 300px;
+        min-height: 50px;
+        padding: 7px;
         &.display {
-          border: none;
           background: transparent;
         }
         &.edit {
           background: #ffffff;
-          border: #7ab893 3px solid;
         }
       }
       .edit-button{

@@ -5,13 +5,14 @@ import React, { PropTypes } from 'react'
 import EditButton from '../components/EditButton'
 import { toggleEditMode, updateText } from '../modules/sides'
 import { connect } from 'react-redux'
+import Textarea from 'react-textarea-autosize'
 
 let Side = ({ id, dispatch, text, isEdit }) => {
   let input = text
 
   return (
     <div className='card-text'>
-      <textarea
+      <Textarea
         className={isEdit ? 'edit' : 'display'}
         defaultValue={text}
         ref={node => {

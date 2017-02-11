@@ -30,3 +30,8 @@ body {
 *:after {
   box-sizing: inherit;
 }
+
+*:focus{
+  outline-color: #5AA23F;
+  outline-width: thin;
+}
